@@ -16,6 +16,8 @@
 
 #include "toggle_switch.h"
 
+#include "moc_toggle_switch.cpp"
+
 Animator::Animator(QObject* target, QObject* parent) : QVariantAnimation(parent) {
    setTargetObject(target);
 }

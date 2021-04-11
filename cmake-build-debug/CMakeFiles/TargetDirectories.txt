@@ -1,0 +1,4 @@
+/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir
+/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel_autogen.dir

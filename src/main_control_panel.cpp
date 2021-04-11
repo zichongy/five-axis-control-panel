@@ -1,6 +1,8 @@
 #include "main_control_panel.h"
 #include "ui_main_control_panel.h"
 
+#include "moc_main_control_panel.cpp"
+
 #include <QCameraInfo>
 #include <QSerialPortInfo>
 

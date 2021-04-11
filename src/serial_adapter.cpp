@@ -1,6 +1,8 @@
 #include "serial_adapter.h"
 #include <QDebug>
 
+#include "moc_serial_adapter.cpp"
+
 SerialAdapter::SerialAdapter(QObject *parent) : QObject(parent)
 {
 
