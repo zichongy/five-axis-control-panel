@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/mocs_compilation.cpp" "/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/five-axis-control-panel_autogen/mocs_compilation.cpp.o"
-  "/Users/seigilens/Local/temp/five-axis-control-panel/src/main.cpp" "/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o"
-  "/Users/seigilens/Local/temp/five-axis-control-panel/src/main_control_panel.cpp" "/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o"
-  "/Users/seigilens/Local/temp/five-axis-control-panel/src/serial_adapter.cpp" "/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/serial_adapter.cpp.o"
-  "/Users/seigilens/Local/temp/five-axis-control-panel/src/toggle_switch.cpp" "/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/toggle_switch.cpp.o"
-  "/Users/seigilens/Local/temp/five-axis-control-panel/src/video_adapter.cpp" "/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o"
+  "/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/mocs_compilation.cpp" "/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/five-axis-control-panel_autogen/mocs_compilation.cpp.o"
+  "/Users/seigilens/Local/five-axis-control-panel/src/main.cpp" "/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o"
+  "/Users/seigilens/Local/five-axis-control-panel/src/main_control_panel.cpp" "/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o"
+  "/Users/seigilens/Local/five-axis-control-panel/src/serial_adapter.cpp" "/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/serial_adapter.cpp.o"
+  "/Users/seigilens/Local/five-axis-control-panel/src/toggle_switch.cpp" "/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/toggle_switch.cpp.o"
+  "/Users/seigilens/Local/five-axis-control-panel/src/video_adapter.cpp" "/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

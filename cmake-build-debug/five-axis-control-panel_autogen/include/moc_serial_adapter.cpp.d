@@ -1,5 +1,5 @@
-/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/include/moc_serial_adapter.cpp: /Users/seigilens/Local/temp/five-axis-control-panel/include/serial_adapter.h \
-  /Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/moc_predefs.h \
+/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/include/moc_serial_adapter.cpp: /Users/seigilens/Local/five-axis-control-panel/include/serial_adapter.h \
+  /Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/moc_predefs.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h \

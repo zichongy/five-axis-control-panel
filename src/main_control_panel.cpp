@@ -18,7 +18,13 @@ MainWindow::MainWindow(QWidget *parent)
     //相机
     //获取相机列表并列出
     const QList<QCameraInfo> availableCameraList = QCameraInfo::availableCameras();
-    foreach (const QCameraInfo &cameraInfo, availableCameraList) ui->comboBox_camera->addItem(cameraInfo.description());
+    QList<QString> cameraList;
+    foreach (const QCameraInfo &cameraInfo, availableCameraList)
+    {
+        ui->comboBox_camera->addItem(cameraInfo.description());
+        cameraList.insert(cameraList.size(),cameraInfo.description());
+    }
+    qDebug() << "Available camera list: " << cameraList;
     //默认相机
     if (ui->comboBox_camera->findText("SPCA2100 PC Camera",Qt::MatchContains) != -1){
         ui->comboBox_camera->setCurrentIndex(ui->comboBox_camera->findText("SPCA2100 PC Camera",Qt::MatchContains));
@@ -26,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     else qDebug() << "Cannot find the default camera!";
     //连接相机开关和VideoAdapter
     connect(toggle_switch_camera_,SIGNAL(toggled(bool)),this,SLOT(toggle_camera_switched(bool)));
-    connect(this,SIGNAL(cameraInitializeInfo(bool,QString)),ui->video_window,SLOT(cameraStatusChanged(bool,QString)));
+    connect(this,SIGNAL(cameraInitializeInfo(bool,int)),ui->video_window,SLOT(cameraStatusChanged(bool,int)));
 
     //串口
     //串口UI初始化
@@ -69,8 +75,8 @@ void MainWindow::toggle_camera_switched(bool camera_status)
 
 void MainWindow::on_comboBox_camera_currentTextChanged()
 {
-    camera_name_selection_ = ui->comboBox_camera->currentText();
-    emit cameraInitializeInfo(camera_permission_, camera_name_selection_);
+    camera_index_selection_ = ui->comboBox_camera->currentIndex();
+    emit cameraInitializeInfo(camera_permission_, camera_index_selection_);
 }
 
 // 串

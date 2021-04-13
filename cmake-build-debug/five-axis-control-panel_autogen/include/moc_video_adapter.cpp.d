@@ -1,5 +1,5 @@
-/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/include/moc_video_adapter.cpp: /Users/seigilens/Local/temp/five-axis-control-panel/include/video_adapter.h \
-  /Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/moc_predefs.h \
+/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/include/moc_video_adapter.cpp: /Users/seigilens/Local/five-axis-control-panel/include/video_adapter.h \
+  /Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/moc_predefs.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h \
@@ -216,14 +216,13 @@
   /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/imgproc/segmentation.hpp \
   /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/opencv_modules.hpp \
   /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/videoio.hpp \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/QScopedPointer \
+  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/QDebug \
+  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/QObject \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/QThread \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/QTimer \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qalgorithms.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qarraydata.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qatomic.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qbasicatomic.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qbasictimer.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qbytearray.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qbytearraylist.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qchar.h \
@@ -232,13 +231,10 @@
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qcontainerfwd.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qcontainertools_impl.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qcontiguouscache.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qcoreevent.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qdatastream.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qdeadlinetimer.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qdebug.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qelapsedtimer.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qfile.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qfiledevice.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qflags.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qglobal.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qglobalstatic.h \
@@ -252,7 +248,6 @@
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qlogging.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qmap.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qmargins.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qmetaobject.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qmetatype.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qmutex.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qnamespace.h \
@@ -284,18 +279,14 @@
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qtcore-config.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qtextstream.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qthread.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qtimer.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qtypeinfo.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qurl.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qvariant.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qvarlengtharray.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qvector.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qversiontagging.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/QKeyEvent \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qbrush.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qcolor.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qcursor.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qevent.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qfont.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qfontinfo.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qfontmetrics.h \
@@ -312,31 +303,8 @@
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qrgba64.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qtgui-config.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qtguiglobal.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qtouchdevice.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qtransform.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qvector2d.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtGui.framework/Versions/5/Headers/qwindowdefs.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/QCamera \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/QCameraImageCapture \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/QMediaRecorder \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qabstractvideobuffer.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qcamera.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qcameraexposure.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qcamerafocus.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qcameraimagecapture.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qcameraimageprocessing.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qcameraviewfindersettings.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qmediabindableinterface.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qmediacontrol.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qmediaencodersettings.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qmediaenumdebug.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qmediaobject.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qmediarecorder.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qmediaservice.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qmultimedia.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qtmultimedia-config.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qtmultimediaglobal.h \
-  /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtMultimedia.framework/Versions/5/Headers/qvideoframe.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Versions/5/Headers/QWidget \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Versions/5/Headers/qsizepolicy.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Versions/5/Headers/qtwidgets-config.h \

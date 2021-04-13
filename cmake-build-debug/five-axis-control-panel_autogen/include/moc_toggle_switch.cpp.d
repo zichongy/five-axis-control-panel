@@ -1,5 +1,5 @@
-/Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/include/moc_toggle_switch.cpp: /Users/seigilens/Local/temp/five-axis-control-panel/include/toggle_switch.h \
-  /Users/seigilens/Local/temp/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/moc_predefs.h \
+/Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/include/moc_toggle_switch.cpp: /Users/seigilens/Local/five-axis-control-panel/include/toggle_switch.h \
+  /Users/seigilens/Local/five-axis-control-panel/cmake-build-debug/five-axis-control-panel_autogen/moc_predefs.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h \
@@ -117,7 +117,7 @@
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/wchar.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/wctype.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include/stdarg.h \
-  /Users/seigilens/Local/temp/five-axis-control-panel/include/toggle_switch_style.h \
+  /Users/seigilens/Local/five-axis-control-panel/include/toggle_switch_style.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qalgorithms.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qarraydata.h \
   /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qatomic.h \

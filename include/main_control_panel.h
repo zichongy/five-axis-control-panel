@@ -25,7 +25,7 @@ private:
     //Camera
     Switch* toggle_switch_camera_ = new Switch("");
     bool camera_permission_ = false;
-    QString camera_name_selection_;
+    int camera_index_selection_;
 
     //Serial
     SerialAdapter *serial_adapter_ = new SerialAdapter;
@@ -75,7 +75,7 @@ private slots:
 
 signals:
     //Camera
-    void cameraInitializeInfo(bool,QString);
+    void cameraInitializeInfo(bool,int);
 
     //Serial Settings
     void serialIntializeInfo(bool,QString);
