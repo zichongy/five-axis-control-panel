@@ -35,6 +35,8 @@ CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o
  ../include/toggle_switch_style.h
  ../include/video_adapter.h
  /Users/seigilens/Local/five-axis-control-panel/src/main_control_panel.cpp
+ /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco.hpp
+ /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco/dictionary.hpp
  /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core.hpp
  /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/base.hpp
  /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/bufferpool.hpp
@@ -129,6 +131,8 @@ CMakeFiles/five-axis-control-panel.dir/src/toggle_switch.cpp.o
 CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o
  ../include/video_adapter.h
  /Users/seigilens/Local/five-axis-control-panel/src/video_adapter.cpp
+ /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco.hpp
+ /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco/dictionary.hpp
  /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core.hpp
  /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/base.hpp
  /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/bufferpool.hpp

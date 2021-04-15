@@ -34,6 +34,8 @@ CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: ../include/
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: ../include/toggle_switch_style.h
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: ../include/video_adapter.h
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: ../src/main_control_panel.cpp
+CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco.hpp
+CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco/dictionary.hpp
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core.hpp
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/base.hpp
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/bufferpool.hpp
@@ -128,6 +130,8 @@ CMakeFiles/five-axis-control-panel.dir/src/toggle_switch.cpp.o: five-axis-contro
 
 CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o: ../include/video_adapter.h
 CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o: ../src/video_adapter.cpp
+CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco.hpp
+CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco/dictionary.hpp
 CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core.hpp
 CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/base.hpp
 CMakeFiles/five-axis-control-panel.dir/src/video_adapter.cpp.o: /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/bufferpool.hpp

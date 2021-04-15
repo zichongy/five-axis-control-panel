@@ -15,6 +15,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/aruco.hpp>
 #include <iostream>
 
 //OpenCV解码类
@@ -65,6 +66,15 @@ private:
     Ui::VideoAdapter *ui;
     OpenCVAdapter *m_thread = nullptr;
     bool is_camera_open_ = false; //接受主窗口信息，在statusChanged中修改
+
+    //ArUco图像处理部分
+    cv::Ptr<cv::aruco::Dictionary> dictionary;
+    cv::Ptr<cv::aruco::DetectorParameters> parameters;
+    std::vector<int> markerIds;
+    std::vector<std::vector<cv::Point2f>> markerCorners, rejectedCandidates;
+    const int frame_interval_ = 5; //30FPS,每6帧处理一次
+    int frame_countdown_;
+    cv::Mat framePosAnalyze(cv::Mat frame_,bool is_key_frame_);
 
 signals:
     void sigCVInitialize(bool,int);

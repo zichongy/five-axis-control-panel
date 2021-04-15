@@ -21,6 +21,8 @@ opencv2/imgproc/imgproc.hpp
 -
 opencv2/highgui/highgui.hpp
 -
+opencv2/aruco.hpp
+-
 iostream
 -
 
@@ -31,6 +33,18 @@ ui_video_adapter.h
 /Users/seigilens/Local/five-axis-control-panel/src/ui_video_adapter.h
 moc_video_adapter.cpp
 /Users/seigilens/Local/five-axis-control-panel/src/moc_video_adapter.cpp
+
+/opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco.hpp
+opencv2/core.hpp
+-
+vector
+-
+opencv2/aruco/dictionary.hpp
+/opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/opencv2/aruco/dictionary.hpp
+
+/opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco/dictionary.hpp
+opencv2/core.hpp
+-
 
 /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core.hpp
 opencv2/core/cvdef.h

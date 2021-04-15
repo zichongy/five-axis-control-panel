@@ -182,6 +182,8 @@
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/wctype.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include/arm_neon.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include/stdarg.h \
+  /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco.hpp \
+  /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/aruco/dictionary.hpp \
   /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core.hpp \
   /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/base.hpp \
   /opt/homebrew/Cellar/opencv/4.5.2/include/opencv4/opencv2/core/bufferpool.hpp \
