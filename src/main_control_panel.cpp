@@ -14,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->gridLayout_camera_switch->addWidget(toggle_switch_camera_);
     ui->gridLayout_serial_switch->addWidget(toggle_switch_serial_);
+    ui->horizontalLayout_laser->addWidget(toggle_switch_laserTrack_);
+    ui->horizontalLayout_autoTrace->addWidget(toggle_switch_autoTrace_);
+    ui->horizontalLayout_calibrate->addWidget(toggle_switch_calibrate_);
 
     //相机
     //获取相机列表并列出
@@ -55,6 +58,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this,SIGNAL(resetPostureMessage(bool,bool)),serial_adapter_,SLOT(manualPostureReset(bool,bool)));
     //角度控制
     connect(this,SIGNAL(angleRelativeChange(bool,bool,double)),serial_adapter_,SLOT(manualAngleAdjust(bool,bool,double)));
+
+    //视觉控制
+    connect(toggle_switch_laserTrack_,SIGNAL(toggled(bool)),this,SLOT(toggle_laserTrack_switched(bool)));
+    connect(toggle_switch_autoTrace_,SIGNAL(toggled(bool)),this,SLOT(toggle_autoTrace_switched(bool)));
+    connect(toggle_switch_calibrate_,SIGNAL(toggled(bool)),this,SLOT(toggle_calibrate_switched(bool)));
+    connect(this,SIGNAL(sigLaserTrackFlag(bool)),ui->video_window,SLOT(slotLaserTrackFlag(bool)));
+    connect(this,SIGNAL(sigAutoTraceFleg(bool)),ui->video_window,SLOT(slotAutoTraceFlag(bool)));
+    connect(this,SIGNAL(sigRotateAngle(double)),ui->video_window,SLOT(slotRotateAngle(double)));
+    connect(ui->video_window,SIGNAL(sigAutoConSerialWrite(int,int)),serial_adapter_,SLOT(slotAutoConSerialWrite(int,int)));
 }
 
 MainWindow::~MainWindow()
@@ -167,7 +179,7 @@ void MainWindow::on_pushButton_x_plus_pressed()
 
 void MainWindow::on_pushButton_x_plus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -214,7 +226,7 @@ void MainWindow::on_pushButton_x_minus_pressed()
 
 void MainWindow::on_pushButton_x_minus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -261,7 +273,7 @@ void MainWindow::on_pushButton_y_plus_pressed()
 
 void MainWindow::on_pushButton_y_plus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -308,7 +320,7 @@ void MainWindow::on_pushButton_y_minus_pressed()
 
 void MainWindow::on_pushButton_y_minus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -355,7 +367,7 @@ void MainWindow::on_pushButton_z_plus_pressed()
 
 void MainWindow::on_pushButton_z_plus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -402,7 +414,7 @@ void MainWindow::on_pushButton_z_minus_pressed()
 
 void MainWindow::on_pushButton_z_minus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -428,6 +440,8 @@ void MainWindow::on_doubleSpinBox_r1_angle_valueChanged(double r1_angle)
     if (r1_relative_value_change < 0) emit angleRelativeChange(true,false,abs(r1_relative_value_change));
 
     r1_current_angle_ = r1_angle;
+
+    sigRotateAngle(r1_angle);
 }
 
 void MainWindow::on_doubleSpinBox_r2_angle_valueChanged(double r2_angle)
@@ -441,3 +455,65 @@ void MainWindow::on_doubleSpinBox_r2_angle_valueChanged(double r2_angle)
 
     r2_current_angle_ = r2_angle;
 }
+
+void MainWindow::toggle_laserTrack_switched(bool laserTrack_on_) {
+    if(!laserTrack_on_ && toggle_switch_autoTrace_->isChecked()){
+        toggle_switch_autoTrace_->setChecked(false);
+    }
+    emit sigLaserTrackFlag(laserTrack_on_);
+}
+
+void MainWindow::toggle_autoTrace_switched(bool autoTrace_on_) {
+    if(autoTrace_on_ && !toggle_switch_laserTrack_->isChecked()){
+        toggle_switch_laserTrack_->setChecked(true);
+    }
+    if(autoTrace_on_ && !toggle_switch_serial_->isChecked()) {
+        toggle_switch_serial_->setChecked(true);
+    }
+    if(autoTrace_on_ && !toggle_switch_camera_->isChecked()) {
+        toggle_switch_camera_->setChecked(true);
+    }
+    emit sigAutoTraceFleg(autoTrace_on_);
+}
+
+void MainWindow::toggle_calibrate_switched(bool _is_calibrate) {
+    QString msg_title = "Angle Conversion";
+
+    //关了要开
+    if (!flag_angle_calibration_ && _is_calibrate) {
+        QString msg_content = "Do you want to convert the angles to match the video stream?";
+        if (QMessageBox::question(this,msg_title,msg_content) == QMessageBox::Yes ) {
+            qDebug() << "Converting the angles to match the video stream！";
+            flag_angle_calibration_ = true;
+        }
+        else {
+            qDebug() << "Convert cancelled!";
+            flag_angle_calibration_ = false;
+            toggle_switch_calibrate_->setChecked(false);
+        }
+    }
+
+    //开了要关
+    if(flag_angle_calibration_ && !_is_calibrate) {
+        QString msg_content = "Do you want to revert the converted angles to original?";
+        if (QMessageBox::question(this,msg_title,msg_content) == QMessageBox::Yes ) {
+            qDebug() << "Reverting the angle conversion!";
+            flag_angle_calibration_ = false;
+        }
+        else {
+            qDebug() << "Keep angle converted!";
+            flag_angle_calibration_ = true;
+            toggle_switch_calibrate_->setChecked(true);
+        }
+    }
+}
+
+
+//QString msg_content = "You haven't convert the angles yet, convert the angle?";
+//
+//
+//flag_calibration_ = true;
+//}
+//}
+//
+//    bool flag_calibration_ = false;

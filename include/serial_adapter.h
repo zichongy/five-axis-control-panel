@@ -24,8 +24,10 @@ private slots:
     void serialWrite_r1_stop();
     void serialWrite_r2_stop();
 
-public slots:
+    //来自自动控制的信号
+    void slotAutoConSerialWrite(int x_stat, int y_stat);
 
+public slots:
     void serialWrite(QString command_to_send_);
 
 private:
@@ -35,6 +37,11 @@ private:
 
     void Sleep(int msec);//延时程序
     int angleToTime(double the_angle_);//将角度转换为时间
+
+    //记录自动控制中的运行状态
+    //0-stop, 1-plus, 2-minus
+    int flag_x_stat_ = 0;
+    int flag_y_stat_ = 0;
 
 signals:
 

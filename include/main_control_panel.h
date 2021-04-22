@@ -1,7 +1,8 @@
-#ifndef CONTROL_PANEL_MAIN_H
-#define CONTROL_PANEL_MAIN_H
+#ifndef MAIN_CONTROL_PANEL_H
+#define MAIN_CONTROL_PANEL_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include "toggle_switch.h"
 #include "serial_adapter.h"
 
@@ -16,20 +17,20 @@ class MainWindow : public QMainWindow
 public:
     //User Interface
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    ~MainWindow() override;
 
 private:
     //User Interface
     Ui::MainWindow *ui;  
 
     //Camera
-    Switch* toggle_switch_camera_ = new Switch("");
+    Switch* toggle_switch_camera_ = new Switch;
     bool camera_permission_ = false;
-    int camera_index_selection_;
+    int camera_index_selection_ = 0;
 
     //Serial
     SerialAdapter *serial_adapter_ = new SerialAdapter;
-    Switch* toggle_switch_serial_ = new Switch("");
+    Switch* toggle_switch_serial_ = new Switch;
     bool serial_permission_ = false;
     QString serial_name_selection_;
 
@@ -40,6 +41,12 @@ private:
     //记录当前角度
     double r1_current_angle_ = 0.0;
     double r2_current_angle_ = 0.0;
+
+    //自动检测与追踪
+    bool flag_angle_calibration_ = false;
+    Switch* toggle_switch_laserTrack_ = new Switch;
+    Switch* toggle_switch_autoTrace_ = new Switch;
+    Switch* toggle_switch_calibrate_ = new Switch;
 
 private slots:
     //Camera
@@ -73,6 +80,11 @@ private slots:
     void on_doubleSpinBox_r1_angle_valueChanged(double r1_angle);
     void on_doubleSpinBox_r2_angle_valueChanged(double r2_angle);
 
+    //Auto Navigate
+    void toggle_laserTrack_switched(bool);
+    void toggle_autoTrace_switched(bool);
+    void toggle_calibrate_switched(bool);
+
 signals:
     //Camera
     void cameraInitializeInfo(bool,int);
@@ -83,5 +95,10 @@ signals:
     //5 Axis Control
     void resetPostureMessage(bool,bool);//分别对应位置和角度
     void angleRelativeChange(bool is_r1_,bool is_plus_,double changed_angle);
+
+    //Visual Control
+    void sigLaserTrackFlag(bool);
+    void sigAutoTraceFleg(bool);
+    void sigRotateAngle(double);
 };
-#endif // MAINWINDOW_H
+#endif // MAIN_CONTROL_PANEL_H

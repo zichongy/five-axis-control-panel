@@ -24,8 +24,10 @@ CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o: /opt/homebrew/Cellar/qt@5
 CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtSerialPort.framework/Headers/qserialportinfo.h
 CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/QApplication
 CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/QMainWindow
+CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/QMessageBox
 CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/qapplication.h
 CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/qmainwindow.h
+CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/qmessagebox.h
 CMakeFiles/five-axis-control-panel.dir/src/main.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/QtWidgets
 
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: ../include/main_control_panel.h
@@ -95,8 +97,10 @@ CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebr
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtSerialPort.framework/Headers/qserialport.h
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtSerialPort.framework/Headers/qserialportinfo.h
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/QMainWindow
+CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/QMessageBox
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/QWidget
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/qmainwindow.h
+CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/qmessagebox.h
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/Headers/qwidget.h
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: /opt/homebrew/Cellar/qt@5/5.15.2/lib/QtWidgets.framework/QtWidgets
 CMakeFiles/five-axis-control-panel.dir/src/main_control_panel.cpp.o: five-axis-control-panel_autogen/include/moc_main_control_panel.cpp
