@@ -1,6 +1,8 @@
 #include "serial_adapter.h"
 #include <QDebug>
 
+#include "moc_serial_adapter.cpp"
+
 SerialAdapter::SerialAdapter(QObject *parent) : QObject(parent)
 {
 
@@ -85,13 +87,68 @@ void SerialAdapter::serialWrite(QString command_to_send_)
     QString command_text_ = command_to_send_;
     if (command_text_.contains(" ")) command_text_.replace(QString(" "),QString(""));
 
-    qDebug() << "Write to serial: " << command_text_;
+    //qDebug() << "Write to serial: " << command_text_;
 
     QByteArray command_byteArray_ = QByteArray::fromHex(command_text_.toLatin1());
     serial_port_->write(command_byteArray_);
 
     Sleep(30);//测试最小多少
 
+}
+
+void SerialAdapter::slotAutoConSerialWrite(int x_stat, int y_stat) {
+    //flag: 只有状态改变时才重新发串口指令
+    if (x_stat != flag_x_stat_){
+        switch (x_stat) {
+            case 0: {
+                qDebug() << "Auto: X STOP.";
+                if (flag_x_stat_ == 1) serialWrite(x_plus_stop_);
+                if (flag_x_stat_ == 2) serialWrite(x_minus_stop_);
+                flag_x_stat_ = x_stat;
+                break;
+            }
+            case 1: {
+                qDebug() << "Auto: X PLUS.";
+                serialWrite(x_plus_speed_medium_);
+                serialWrite(x_plus_start_);
+                flag_x_stat_ = x_stat;
+                break;
+            }
+            case 2: {
+                qDebug() << "Auto: X MINUS.";
+                serialWrite(x_minus_speed_medium_);
+                serialWrite(x_minus_start_);
+                flag_x_stat_ = x_stat;
+                break;
+            }
+        }
+    }
+
+    if (y_stat != flag_y_stat_){
+        switch (y_stat) {
+            case 0: {
+                qDebug() << "Auto: Y STOP.";
+                if (flag_y_stat_ == 1) serialWrite(y_plus_stop_);
+                if (flag_y_stat_ == 2) serialWrite(y_minus_stop_);
+                flag_y_stat_ = y_stat;
+                break;
+            }
+            case 1: {
+                qDebug() << "Auto: Y PLUS.";
+                serialWrite(y_plus_speed_medium_);
+                serialWrite(y_plus_start_);
+                flag_y_stat_ = y_stat;
+                break;
+            }
+            case 2: {
+                qDebug() << "Auto: Y MINUS.";
+                serialWrite(y_minus_speed_medium_);
+                serialWrite(y_minus_start_);
+                flag_y_stat_ = y_stat;
+                break;
+            }
+        }
+    }
 }
 
 void SerialAdapter::Sleep(int msec)

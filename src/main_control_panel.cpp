@@ -1,6 +1,8 @@
 #include "main_control_panel.h"
 #include "ui_main_control_panel.h"
 
+#include "moc_main_control_panel.cpp"
+
 #include <QCameraInfo>
 #include <QSerialPortInfo>
 
@@ -12,11 +14,20 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->gridLayout_camera_switch->addWidget(toggle_switch_camera_);
     ui->gridLayout_serial_switch->addWidget(toggle_switch_serial_);
+    ui->horizontalLayout_laser->addWidget(toggle_switch_laserTrack_);
+    ui->horizontalLayout_autoTrace->addWidget(toggle_switch_autoTrace_);
+    ui->horizontalLayout_calibrate->addWidget(toggle_switch_calibrate_);
 
     //相机
     //获取相机列表并列出
     const QList<QCameraInfo> availableCameraList = QCameraInfo::availableCameras();
-    foreach (const QCameraInfo &cameraInfo, availableCameraList) ui->comboBox_camera->addItem(cameraInfo.description());
+    QList<QString> cameraList;
+    foreach (const QCameraInfo &cameraInfo, availableCameraList)
+    {
+        ui->comboBox_camera->addItem(cameraInfo.description());
+        cameraList.insert(cameraList.size(),cameraInfo.description());
+    }
+    qDebug() << "Available camera list: " << cameraList;
     //默认相机
     if (ui->comboBox_camera->findText("SPCA2100 PC Camera",Qt::MatchContains) != -1){
         ui->comboBox_camera->setCurrentIndex(ui->comboBox_camera->findText("SPCA2100 PC Camera",Qt::MatchContains));
@@ -24,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     else qDebug() << "Cannot find the default camera!";
     //连接相机开关和VideoAdapter
     connect(toggle_switch_camera_,SIGNAL(toggled(bool)),this,SLOT(toggle_camera_switched(bool)));
-    connect(this,SIGNAL(cameraInitializeInfo(bool,QString)),ui->video_window,SLOT(cameraStatusChanged(bool,QString)));
+    connect(this,SIGNAL(cameraInitializeInfo(bool,int)),ui->video_window,SLOT(cameraStatusChanged(bool,int)));
 
     //串口
     //串口UI初始化
@@ -40,13 +51,23 @@ MainWindow::MainWindow(QWidget *parent)
     else qDebug() << "Cannot find the default serial port!";
     //连接串口开关和SerialAdapter
     connect(toggle_switch_serial_,SIGNAL(toggled(bool)),this,SLOT(toggle_serial_switched(bool)));
-    connect(this,SIGNAL(serialIntializeInfo(bool,QString)),serial_adapter_,SLOT(serialInitialize(bool,QString)));
+    connect(this,SIGNAL(serialInitializeInfo(bool,QString)),serial_adapter_,SLOT(serialInitialize(bool,QString)));
 
     //五轴控制
     //位姿重置
     connect(this,SIGNAL(resetPostureMessage(bool,bool)),serial_adapter_,SLOT(manualPostureReset(bool,bool)));
     //角度控制
     connect(this,SIGNAL(angleRelativeChange(bool,bool,double)),serial_adapter_,SLOT(manualAngleAdjust(bool,bool,double)));
+
+    //视觉控制
+    connect(toggle_switch_laserTrack_,SIGNAL(toggled(bool)),this,SLOT(toggle_laserTrack_switched(bool)));
+    connect(toggle_switch_autoTrace_,SIGNAL(toggled(bool)),this,SLOT(toggle_autoTrace_switched(bool)));
+    connect(toggle_switch_calibrate_,SIGNAL(toggled(bool)),this,SLOT(toggle_calibrate_switched(bool)));
+    connect(this,SIGNAL(sigLaserTrackFlag(bool)),ui->video_window,SLOT(slotLaserTrackFlag(bool)));
+    connect(this,SIGNAL(sigAutoTraceFleg(bool)),ui->video_window,SLOT(slotAutoTraceFlag(bool)));
+    connect(this,SIGNAL(sigRotateAngle(double)),ui->video_window,SLOT(slotRotateAngle(double)));
+    connect(ui->video_window,SIGNAL(sigAutoConSerialWrite(int,int)),serial_adapter_,SLOT(slotAutoConSerialWrite(int,int)));
+    connect(ui->video_window,SIGNAL(sigStopAutoTrace()),this,SLOT(slotStopAutoTrace()));
 }
 
 MainWindow::~MainWindow()
@@ -67,8 +88,8 @@ void MainWindow::toggle_camera_switched(bool camera_status)
 
 void MainWindow::on_comboBox_camera_currentTextChanged()
 {
-    camera_name_selection_ = ui->comboBox_camera->currentText();
-    emit cameraInitializeInfo(camera_permission_, camera_name_selection_);
+    camera_index_selection_ = ui->comboBox_camera->currentIndex();
+    emit cameraInitializeInfo(camera_permission_, camera_index_selection_);
 }
 
 // 串
@@ -85,7 +106,7 @@ void MainWindow::toggle_serial_switched(bool serial_status)
 void MainWindow::on_comboBox_serial_currentTextChanged()
 {
     serial_name_selection_ = ui->comboBox_serial->currentText();
-    emit serialIntializeInfo(serial_permission_, serial_name_selection_);
+    emit serialInitializeInfo(serial_permission_, serial_name_selection_);
 }
 
 
@@ -159,7 +180,7 @@ void MainWindow::on_pushButton_x_plus_pressed()
 
 void MainWindow::on_pushButton_x_plus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -206,7 +227,7 @@ void MainWindow::on_pushButton_x_minus_pressed()
 
 void MainWindow::on_pushButton_x_minus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -253,7 +274,7 @@ void MainWindow::on_pushButton_y_plus_pressed()
 
 void MainWindow::on_pushButton_y_plus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -300,7 +321,7 @@ void MainWindow::on_pushButton_y_minus_pressed()
 
 void MainWindow::on_pushButton_y_minus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -347,7 +368,7 @@ void MainWindow::on_pushButton_z_plus_pressed()
 
 void MainWindow::on_pushButton_z_plus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -394,7 +415,7 @@ void MainWindow::on_pushButton_z_minus_pressed()
 
 void MainWindow::on_pushButton_z_minus_released()
 {
-    if (is_press_function_end_ == false)
+    if (!is_press_function_end_)
     {
         is_force_stop_ = true;
     }
@@ -420,6 +441,8 @@ void MainWindow::on_doubleSpinBox_r1_angle_valueChanged(double r1_angle)
     if (r1_relative_value_change < 0) emit angleRelativeChange(true,false,abs(r1_relative_value_change));
 
     r1_current_angle_ = r1_angle;
+
+    sigRotateAngle(r1_angle);
 }
 
 void MainWindow::on_doubleSpinBox_r2_angle_valueChanged(double r2_angle)
@@ -432,4 +455,65 @@ void MainWindow::on_doubleSpinBox_r2_angle_valueChanged(double r2_angle)
     if (r2_relative_value_change < 0) emit angleRelativeChange(false,false,abs(r2_relative_value_change));
 
     r2_current_angle_ = r2_angle;
+}
+
+void MainWindow::toggle_laserTrack_switched(bool laserTrack_on_) {
+    if(!laserTrack_on_ && toggle_switch_autoTrace_->isChecked()){
+        toggle_switch_autoTrace_->setChecked(false);
+    }
+    emit sigLaserTrackFlag(laserTrack_on_);
+}
+
+void MainWindow::toggle_autoTrace_switched(bool autoTrace_on_) {
+    if(autoTrace_on_ && !toggle_switch_laserTrack_->isChecked()){
+        toggle_switch_laserTrack_->setChecked(true);
+    }
+    if(autoTrace_on_ && !toggle_switch_serial_->isChecked()) {
+        toggle_switch_serial_->setChecked(true);
+    }
+    if(autoTrace_on_ && !toggle_switch_camera_->isChecked()) {
+        toggle_switch_camera_->setChecked(true);
+    }
+    emit sigAutoTraceFleg(autoTrace_on_);
+}
+
+void MainWindow::toggle_calibrate_switched(bool _is_calibrate) {
+    QString msg_title = "Angle Conversion";
+
+    //关了要开
+    if (!flag_angle_calibration_ && _is_calibrate) {
+        QString msg_content = "Do you want to convert the angles to match the video stream?";
+        if (QMessageBox::question(this,msg_title,msg_content) == QMessageBox::Yes ) {
+            qDebug() << "Converting the angles to match the video stream！";
+
+            r1_original_angle_ = r1_current_angle_;
+            r2_original_angle_ = r2_current_angle_;
+            flag_angle_calibration_ = true;
+        }
+        else {
+            qDebug() << "Convert cancelled!";
+            flag_angle_calibration_ = false;
+            toggle_switch_calibrate_->setChecked(false);
+        }
+    }
+
+    //开了要关
+    if(flag_angle_calibration_ && !_is_calibrate) {
+        QString msg_content = "Do you want to revert the converted angles to original?";
+        if (QMessageBox::question(this,msg_title,msg_content) == QMessageBox::Yes ) {
+            qDebug() << "Reverting the angle conversion!";
+            ui->doubleSpinBox_r1_angle->setValue(r1_original_angle_);
+            ui->doubleSpinBox_r2_angle->setValue(r2_original_angle_);
+            flag_angle_calibration_ = false;
+        }
+        else {
+            qDebug() << "Keep angle converted!";
+            flag_angle_calibration_ = true;
+            toggle_switch_calibrate_->setChecked(true);
+        }
+    }
+}
+
+void MainWindow::slotStopAutoTrace() {
+    toggle_switch_autoTrace_->setChecked(false);
 }
